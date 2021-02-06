@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="917713702195-hpvrju8gukfod7km3u78q9be155lctfr.apps.googleusercontent.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <title>Google Sign In API</title>
+</head>
+<body>
+    <div class="container">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <a class="btn btn-danger" href="#" onclick="signOut();">Sign out</a>
+    </div>
+    <div class="container col-3">
+        <form action="#" method="POST">
+            <label for="">Name</label>
+            <input type="text" class="form-control" id="googleName"><br>
+            <label for="">Email (Google Only)</label>
+            <input type="text" class="form-control" id="googleEmail"><br>
+            <p class="text-center">
+                <input type="submit" class="btn btn-success">
+            </p>
+        </form>
+    </div>
+    <div>
+
+    </div>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var name = profile.getName();
+            var email = profile.getEmail();
+            document.getElementById('googleName').value = name;
+            document.getElementById('googleEmail').value = email;
+            }
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+            console.log('User signed out.');
+            location.reload();
+            });
+            }
+    </script>
+    
+</body>
+</html>

@@ -27,6 +27,14 @@
 
     </div>
     <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var name = profile.getName();
+            var email = profile.getEmail();
+            document.getElementById('googleName').value = name;
+            document.getElementById('googleEmail').value = email;
+            location.href = 'success.html';
+            }
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
             auth2.signOut().then(function () {

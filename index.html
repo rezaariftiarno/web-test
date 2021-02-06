@@ -13,7 +13,7 @@
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
     <div class="container col-3">
-        <form action="#">
+        <form action="success.html">
             <label for="">Name</label>
             <input type="text" class="form-control" id="googleName"><br>
             <label for="">Email (Google Only)</label>
@@ -33,7 +33,7 @@
             var email = profile.getEmail();
             document.getElementById('googleName').value = name;
             document.getElementById('googleEmail').value = email;
-            location.href = 'success.html';
+
             }
     </script>
     

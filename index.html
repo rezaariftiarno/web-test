@@ -11,7 +11,6 @@
 <body>
     <div class="container">
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <a class="btn btn-danger" href="#" onclick="signOut();">Sign out</a>
     </div>
     <div class="container col-3">
         <form action="#">
@@ -34,13 +33,7 @@
             var email = profile.getEmail();
             document.getElementById('googleName').value = name;
             document.getElementById('googleEmail').value = email;
-            }
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-            console.log('User signed out.');
-            location.reload();
-            });
+            location.href = 'success.html';
             }
     </script>
     
